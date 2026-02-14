@@ -258,12 +258,17 @@ class Validator {
 
 				if ( 0 !== $code ) {
 					$error_msg = implode( "\n", $output );
-					// Remove temp file path from error message.
-					$error_msg = str_replace( $temp_file, 'file', $error_msg );
-					return new \WP_Error( 'php_syntax', "PHP syntax error: {$error_msg}" );
-				}
 
-				return true;
+					// If php binary not found, fall through to regex check.
+					if ( str_contains( $error_msg, 'command not found' ) || str_contains( $error_msg, 'not recognized' ) ) {
+						// Fall through to regex fallback below.
+					} else {
+						$error_msg = str_replace( $temp_file, 'file', $error_msg );
+						return new \WP_Error( 'php_syntax', "PHP syntax error: {$error_msg}" );
+					}
+				} else {
+					return true;
+				}
 			}
 		}
 
