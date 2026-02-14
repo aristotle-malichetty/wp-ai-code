@@ -1,0 +1,210 @@
+/**
+ * WP AI Code — Admin styles.
+ */
+
+/* Status badges */
+.wpaic-status {
+	display: inline-block;
+	padding: 2px 8px;
+	border-radius: 3px;
+	font-size: 12px;
+	font-weight: 600;
+	line-height: 1.5;
+	text-transform: uppercase;
+	letter-spacing: 0.3px;
+}
+
+.wpaic-status--pending {
+	background: #f0c33c;
+	color: #5b4b00;
+}
+
+.wpaic-status--deployed {
+	background: #00a32a;
+	color: #fff;
+}
+
+.wpaic-status--rejected {
+	background: #9e9e9e;
+	color: #fff;
+}
+
+.wpaic-status--rolled_back {
+	background: #2271b1;
+	color: #fff;
+}
+
+.wpaic-status--failed {
+	background: #d63638;
+	color: #fff;
+}
+
+/* Detail page grid */
+.wpaic-detail-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 20px;
+	margin-top: 20px;
+}
+
+@media (max-width: 782px) {
+	.wpaic-detail-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* Cards */
+.wpaic-card {
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+	padding: 16px 20px;
+	margin-bottom: 20px;
+}
+
+.wpaic-card h2 {
+	margin-top: 0;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #f0f0f1;
+}
+
+.wpaic-card--full {
+	grid-column: 1 / -1;
+}
+
+/* Meta table */
+.wpaic-meta-table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.wpaic-meta-table th {
+	text-align: left;
+	padding: 6px 10px 6px 0;
+	width: 130px;
+	color: #646970;
+	font-weight: normal;
+	vertical-align: top;
+}
+
+.wpaic-meta-table td {
+	padding: 6px 0;
+}
+
+/* Action buttons */
+.wpaic-actions {
+	display: flex;
+	gap: 10px;
+	margin-top: 16px;
+	padding-top: 16px;
+	border-top: 1px solid #f0f0f1;
+}
+
+.wpaic-action-form {
+	display: inline;
+}
+
+/* Validation sections */
+.wpaic-validation-section {
+	margin-bottom: 12px;
+}
+
+.wpaic-validation-section h3 {
+	margin: 8px 0 4px;
+	font-size: 13px;
+}
+
+.wpaic-validation--errors {
+	background: #fcf0f1;
+	border-left: 4px solid #d63638;
+	padding: 8px 12px;
+	border-radius: 2px;
+}
+
+.wpaic-validation--warnings {
+	background: #fef8ee;
+	border-left: 4px solid #dba617;
+	padding: 8px 12px;
+	border-radius: 2px;
+}
+
+.wpaic-validation-section ul {
+	margin: 4px 0 0 16px;
+	list-style: disc;
+}
+
+.wpaic-validation-section li {
+	font-size: 13px;
+	margin-bottom: 2px;
+}
+
+.wpaic-validation-ok {
+	color: #00a32a;
+	font-weight: 600;
+}
+
+/* File listing */
+.wpaic-file {
+	margin-bottom: 16px;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+	overflow: hidden;
+}
+
+.wpaic-file-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 8px 12px;
+	background: #f6f7f7;
+	border-bottom: 1px solid #dcdcde;
+}
+
+.wpaic-file-path {
+	font-family: monospace;
+	font-size: 13px;
+	font-weight: 600;
+}
+
+.wpaic-file-size {
+	color: #646970;
+	font-size: 12px;
+}
+
+.wpaic-file-content {
+	margin: 0;
+	padding: 12px;
+	background: #f9f9f9;
+	overflow-x: auto;
+	max-height: 400px;
+	overflow-y: auto;
+	font-size: 12px;
+	line-height: 1.5;
+	tab-size: 4;
+}
+
+.wpaic-file-content code {
+	font-family: Consolas, Monaco, 'Andale Mono', monospace;
+	white-space: pre;
+}
+
+.wpaic-file-binary {
+	padding: 12px;
+	color: #646970;
+	font-style: italic;
+	margin: 0;
+}
+
+/* Table tweaks */
+.wp-list-table .column-id {
+	width: 50px;
+}
+
+.wp-list-table .column-status {
+	width: 110px;
+}
+
+.wp-list-table .column-files {
+	width: 60px;
+	text-align: center;
+}
