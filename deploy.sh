@@ -14,7 +14,14 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 # Load .env
 if [ -f "$SCRIPT_DIR/.env" ]; then
-    export $(grep -v '^#' "$SCRIPT_DIR/.env" | xargs)
+    while IFS='=' read -r key value; do
+        # Skip comments and empty lines
+        [[ "$key" =~ ^#.*$ || -z "$key" ]] && continue
+        # Trim whitespace from key
+        key=$(echo "$key" | xargs)
+        # Export with value preserved (including spaces)
+        export "$key=$value"
+    done < "$SCRIPT_DIR/.env"
 else
     echo "Error: .env file not found. Copy .env.example to .env and fill in your credentials."
     exit 1
